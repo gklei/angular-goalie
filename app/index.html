@@ -16,22 +16,23 @@
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body ng-app="goalie">
-  <h1>Goalie Tasks</h1>
-  <div class="list">
-    <input type="checkbox"/>
-    <label class="editing-label">A sample task!</label>
-    <input class="editing-label" type="text"/>
-  </div>
-  <div class="actions">
-    <a href="">edit</a>
-    <a href="">save</a>
-    <a href="" class="delete">delete</a>
+  <div ng-controller="mainCtrl" class="list">
+    <h1>Goalie Tasks</h1>
+    <div class="item" ng-class="{'editing' : editing,  'edited' : edited}" ng-repeat="task in tasks">
+      <input ng-model="task.completed" type="checkbox"/>
+      <label ng-hide="editing">{{task.name}}</label>
+      <input ng-blur="editing = false;" ng-show="editing" ng-change="edited = true;" ng-model="task.name" class="editing-label" type="text"/>
+      <div class="actions">
+        <a ng-click="toggleEditing()" href="">Edit</a>
+        <a href="">Save</a>
+        <a href="" class="delete">Delete</a>
+      </div>
+    </div>
   </div>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
   <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

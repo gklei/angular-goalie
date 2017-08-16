@@ -1,14 +1,20 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('goalie', [
-  'ngRoute',
-  'goalie.view1',
-  'goalie.view2',
-  'goalie.version'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
+angular.module('goalie', [])
+  .controller('mainCtrl', function ($scope) {
+  $scope.editing = false;
 
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+  $scope.toggleEditing = function () {
+    this.editing = !this.editing;
+  };
+
+  $scope.tasks = [
+    {name : 'task1'},
+    {name : 'task2'},
+    {name : 'task3'},
+    {name : 'task4'},
+    {name : 'task5'},
+    {name : 'task6'},
+  ];
+});
