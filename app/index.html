@@ -23,8 +23,8 @@
       <label ng-hide="editing">{{task.name}}</label>
       <input ng-blur="editing = false;" ng-show="editing" ng-change="edited = true;" ng-model="task.name" class="editing-label" type="text"/>
       <div class="actions">
-        <a ng-click="toggleEditing()" href="">Edit</a>
-        <a href="">Save</a>
+        <a href="" ng-click="toggleEditing()">Edit</a>
+        <a href="" ng-click="helloConsole()">Save</a>
         <a href="" class="delete">Delete</a>
       </div>
     </div>

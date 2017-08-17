@@ -2,7 +2,7 @@
 
 // Declare app level module which depends on views, and components
 angular.module('goalie', [])
-  .controller('mainCtrl', function ($scope) {
+  .controller('mainCtrl', function ($scope, dataService) {
   $scope.editing = false;
 
   $scope.toggleEditing = function () {
@@ -17,4 +17,12 @@ angular.module('goalie', [])
     {name : 'task5'},
     {name : 'task6'},
   ];
+
+  $scope.helloConsole = dataService.helloConsole;
+
+})
+  .service('dataService', function () {
+  this.helloConsole = function () {
+    console.log('Hello console.');
+  }
 });
